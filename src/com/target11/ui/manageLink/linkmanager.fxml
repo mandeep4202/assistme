@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXTreeTableView?>
+<?import de.jensd.fx.glyphs.materialicons.MaterialIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="506.0"
+      prefWidth="646.0" stylesheets="@../../resources/dark-theme.css" xmlns="http://javafx.com/javafx/8.0.171"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.target11.ui.manageLink.LinkManageController">
+    <children>
+        <JFXTreeTableView fx:id="editTableView" prefHeight="400.0" prefWidth="646.0"
+                          stylesheets="@../../resources/dark-theme.css"/>
+        <HBox alignment="CENTER" layoutY="400.0" prefHeight="107.0" prefWidth="646.0"
+              stylesheets="@../launch/launchButton.css">
+            <children>
+                <JFXTextField fx:id="linkNameTF" labelFloat="true" nodeOrientation="LEFT_TO_RIGHT" prefHeight="9.0"
+                              prefWidth="180.0" promptText="Link Name">
+                    <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                    </HBox.margin>
+                </JFXTextField>
+                <JFXComboBox fx:id="linkTypeDD" nodeOrientation="LEFT_TO_RIGHT" prefHeight="9.0" prefWidth="140.0"
+                             promptText="Link Type">
+                    <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                    </padding>
+                    <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                    </HBox.margin>
+                </JFXComboBox>
+                <JFXButton fx:id="updateLinkButton" alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT"
+                           onAction="#updateLink" prefHeight="50.0" prefWidth="50.0">
+                    <graphic>
+                        <MaterialIconView glyphName="SAVE" nodeOrientation="LEFT_TO_RIGHT" size="25" text=""
+                                          wrappingWidth="37.96075439453125"/>
+                    </graphic>
+                    <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                    </HBox.margin>
+                </JFXButton>
+            </children>
+            <padding>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+            </padding>
+        </HBox>
+    </children>
+</Pane>

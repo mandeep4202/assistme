@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="506.0" prefWidth="154.0" styleClass="toolbar-container" stylesheets="@../../resources/dark-theme.css"
+      xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.target11.ui.sidemenu.SideMenuController">
+    <children>
+        <JFXButton contentDisplay="TOP" mnemonicParsing="false" onAction="#loadLaunchPage" prefHeight="400.0"
+                   prefWidth="160.0" styleClass="toolbar-button" text="Launch" textAlignment="CENTER">
+            <graphic>
+                <FontAwesomeIconView glyphName="ROCKET" size="25"/>
+            </graphic>
+        </JFXButton>
+        <JFXButton contentDisplay="TOP" layoutX="10.0" layoutY="10.0" mnemonicParsing="false"
+                   onAction="#loadAddLinkPage" prefHeight="400.0" prefWidth="160.0" styleClass="toolbar-button"
+                   text="Add Link" textAlignment="CENTER">
+            <graphic>
+                <FontAwesomeIconView glyphName="PLUS_CIRCLE" size="25"/>
+            </graphic>
+        </JFXButton>
+        <JFXButton contentDisplay="TOP" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#loadManageLink"
+                   prefHeight="400.0" prefWidth="160.0" styleClass="toolbar-button" text="Manage Link"
+                   textAlignment="CENTER">
+            <graphic>
+                <FontAwesomeIconView glyphName="EXPEDITEDSSL" size="25" text=""/>
+            </graphic>
+        </JFXButton>
+        <JFXButton contentDisplay="TOP" layoutX="10.0" layoutY="81.0" mnemonicParsing="false"
+                   onAction="#loadPreferencesPage" prefHeight="400.0" prefWidth="160.0" styleClass="toolbar-button"
+                   text="Lot Management" textAlignment="CENTER">
+            <graphic>
+                <FontAwesomeIconView glyphName="TABLE" size="25"/>
+            </graphic>
+        </JFXButton>
+        <JFXButton contentDisplay="TOP" layoutX="10.0" layoutY="223.0" mnemonicParsing="false" prefHeight="400.0"
+                   prefWidth="160.0" styleClass="toolbar-button" text="Settings" textAlignment="CENTER">
+            <graphic>
+                <FontAwesomeIconView glyphName="COG" size="25"/>
+            </graphic>
+        </JFXButton>
+        <JFXButton contentDisplay="TOP" mnemonicParsing="false" prefHeight="400.0" prefWidth="160.0"
+                   styleClass="toolbar-button" text="Exit" textAlignment="CENTER">
+            <graphic>
+                <FontAwesomeIconView glyphName="CHECK" size="25" textAlignment="CENTER"/>
+            </graphic>
+        </JFXButton>
+    </children>
+</VBox>

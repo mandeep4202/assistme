@@ -1,0 +1,21 @@
+
+.button:hover, .button:focused {
+    -fx-border-color: white;
+    -fx-background-color: orange;
+    -fx-text-fill: blue;
+}
+
+.lot_button {
+    -fx-pref-height: 9px;
+    -fx-pref-width: 9px;
+    -fx-text-fill: red;
+    -fx-background-color: orange;
+    -fx-border-color: blue;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-font-size: 9pt;
+
+    -fx-padding: 2px;
+    -fx-border-insets: 2px;
+    -fx-background-insets: 2px;
+}
