@@ -8,12 +8,6 @@ import com.target11.services.LotService;
 import com.target11.utility.CommonUIUtil;
 import com.target11.vo.LinkVO;
 import com.target11.vo.LotVO;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-import java.util.ResourceBundle;
-import java.util.stream.Collectors;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -24,6 +18,13 @@ import javafx.scene.layout.VBox;
 import org.controlsfx.control.ListSelectionView;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+import java.util.ResourceBundle;
+import java.util.stream.Collectors;
 
 public class LotController implements Initializable {
 
@@ -37,9 +38,6 @@ public class LotController implements Initializable {
 
   @FXML
   private ListSelectionView<LinkVO> selectionView;
-
-  @FXML
-  private VBox prefrencesCP;
 
   @FXML
   private JFXButton saveLot;
@@ -76,7 +74,6 @@ public class LotController implements Initializable {
     masterAvailableList = linkVOList;
     selectionView.getSourceItems().addAll(linkVOList);
     lotDispayArea.setVisible(false);
-
   }
 
   private void loadAllLot() {
@@ -175,7 +172,6 @@ public class LotController implements Initializable {
       lotDispayArea.setVisible(true);
       selectionView.getTargetItems().clear();
       selectionView.getSourceItems().clear();
-      selectionView.getSourceItems().addAll(masterAvailableList);
     } else if ("newLot".equalsIgnoreCase(modeSelected)) {
       selectedLot = null;
       lotDispayArea.setVisible(false);

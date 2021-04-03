@@ -58,8 +58,9 @@ public class LaunchPage implements Initializable {
     logger.info("Start of prepareAllLinksBtn()");
     linkService = getLinkService();
     linkVOList = linkService.fetchLink();
+    JFXButton jfxBtn = null;
     for (LinkVO linkVO : linkVOList) {
-      JFXButton jfxBtn = new JFXButton();
+      jfxBtn = new JFXButton();
       jfxBtn.setText(linkVO.getLinkName());
       jfxBtn.getStyleClass().add("button-raised");
       jfxBtn.getStylesheets().add(getClass()
@@ -75,10 +76,6 @@ public class LaunchPage implements Initializable {
       } else if (AppConstant.LINK_TYPE_OTHER.equals(linkVO.getLinkType())) {
         CommonUIUtil.addTOPane(otherLauncher, jfxBtn);
       }
-
-      // if (ProcessUtility.getFileExtension(linkVO.getLinkPath()) == "ink") {
-      //   ProcessUtility.inkProperties(new File(linkVO.getLinkPath()));
-      // }
 
       jfxBtn.addEventHandler(MouseEvent.MOUSE_CLICKED,
           event -> ProcessUtility.runProcess(linkVO.getLinkPath(), linkVO.getLinkType()));
