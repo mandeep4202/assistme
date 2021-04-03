@@ -98,21 +98,6 @@ public class AddLinkController {
         return dialog;
     }
 
-  /*  private void label() {
-
-        popup = new JFXPopup();
-        JFXButton jf1 = new JFXButton("Btn 1");
-        JFXButton jf2 = new JFXButton("Btn 2");
-        JFXButton jf3 = new JFXButton("Btn 3");
-
-        jf1.setPadding(new Insets(10));
-        jf2.setPadding(new Insets(10));
-        jf3.setPadding(new Insets(10));
-
-        VBox vbox = new VBox(jf1, jf2, jf3);
-        popup.setPopupContent(vbox);
-    }*/
-
     @FXML
     void showPopup(MouseEvent event) {
         try {
