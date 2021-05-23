@@ -6,6 +6,6 @@ public interface AppConstant {
     String LINK_TYPE_DOC  = "DOC";
     String LINK_TYPE_DIR  = "DIR";
     String LINK_TYPE_OTHER  = "OTHER";
-
+    String LINK_TYPE_CTC  = "CTC";
 
 }

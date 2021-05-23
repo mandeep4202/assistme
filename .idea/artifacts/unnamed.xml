@@ -1,0 +1,19 @@
+<component name="ArtifactManager">
+  <artifact name="unnamed">
+    <output-path>$PROJECT_DIR$/out/artifacts/unnamed</output-path>
+    <root id="root">
+      <element id="file-copy" path="$PROJECT_DIR$/../dependancy Jars/mslinks-1.0.5.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/../dependancy Jars/jfoenix-8.0.10.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/../dependancy Jars/log4j-api-2.11.0.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/../dependancy Jars/slf4j-api-1.7.25.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/../dependancy Jars/fontawesomefx-8.9.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/../dependancy Jars/controlsfx-8.40.16.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/../dependancy Jars/sqlite-jdbc-3.30.1.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/../dependancy Jars/slf4j-simple-1.7.25.jar" />
+      <element id="archive" name="assistme.jar" />
+      <element id="archive" name="AssistMe.jar">
+        <element id="module-output" name="AssistMe" />
+      </element>
+    </root>
+  </artifact>
+</component>
