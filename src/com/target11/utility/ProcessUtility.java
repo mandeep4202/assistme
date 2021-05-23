@@ -1,5 +1,8 @@
 package com.target11.utility;
 
+import javafx.scene.input.Clipboard;
+import javafx.scene.input.ClipboardContent;
+import javafx.scene.input.DataFormat;
 import mslinks.ShellLink;
 import mslinks.ShellLinkException;
 import org.slf4j.Logger;
@@ -22,9 +25,13 @@ public class ProcessUtility {
     if (null != path) {
 
       try {
-        if (processType.equals("DIR")) {
+        if (AppConstant.LINK_TYPE_DIR .equals(processType)) {
           String completeCmd = "explorer.exe /select," + path;
           new ProcessBuilder(("explorer.exe " + completeCmd).split(" ")).start();
+        } else if(AppConstant.LINK_TYPE_CTC.equals(processType)) {
+          final ClipboardContent content = new ClipboardContent();
+          content.put(DataFormat.PLAIN_TEXT, path );
+          Clipboard.getSystemClipboard().setContent(content);
         } else {
           new ProcessBuilder("cmd", "/c", ProcessUtility.dirStructure(path)).start();
         }

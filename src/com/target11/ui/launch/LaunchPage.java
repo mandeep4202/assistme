@@ -73,7 +73,7 @@ public class LaunchPage implements Initializable {
         CommonUIUtil.addTOPane(appLauncher, jfxBtn);
       } else if (AppConstant.LINK_TYPE_DOC.equals(linkVO.getLinkType()) || AppConstant.LINK_TYPE_DIR.equals(linkVO.getLinkType())) {
         CommonUIUtil.addTOPane(docDirLauncher, jfxBtn);
-      } else if (AppConstant.LINK_TYPE_OTHER.equals(linkVO.getLinkType())) {
+      } else if (AppConstant.LINK_TYPE_CTC.equals(linkVO.getLinkType())) {
         CommonUIUtil.addTOPane(otherLauncher, jfxBtn);
       }
 
