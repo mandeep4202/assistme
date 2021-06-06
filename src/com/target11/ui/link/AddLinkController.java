@@ -28,8 +28,6 @@ public class AddLinkController {
     LinkService linkService = null;
     @FXML
     private JFXListView<Label> listView;
-// @FXML
-// private AnchorPane anchorPane;
 
     @FXML
     private ListView addLinkViewId = new ListView();
@@ -57,8 +55,6 @@ public class AddLinkController {
 
         LinkService linkService = getLinkService();
         String linkName = linkProperties.get(0);
-
-        //String linkExt = linkProperties.size() >= 2 ? linkProperties.get(1) : "DIR";
 
         String linkExt = linkProperties.get(1);
         String modifiedPath = linkProperties.get(2);
@@ -117,6 +113,10 @@ public class AddLinkController {
     }
 
 
-
-
+    public void addClickToCopy(MouseEvent mouseEvent) {
+        log.info("CLick to copy ");
+        if( mouseEvent.getClickCount() == 2) {
+            Object controller = CommonUIUtil.loadWindow(getClass().getResource("./ctc/ClickToCopy.fxml"), "Add Click To Copy", null);
+        }
+    }
 }

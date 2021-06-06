@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane fx:id="ctcPrimaryPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="282.0" prefWidth="381.0" stylesheets="@../../../resources/dark-theme.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.target11.ui.link.ctc.ClickToCopyController">
+   <children>
+      <Label layoutX="42.0" layoutY="40.0" text="Link Name" />
+      <Label layoutX="42.0" layoutY="95.0" text="Link Value" />
+      <JFXTextField fx:id="ctcName" labelFloat="true" layoutX="108.0" layoutY="36.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="9.0" prefWidth="180.0" />
+      <JFXTextField fx:id="ctcValue" labelFloat="true" layoutX="108.0" layoutY="82.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="9.0" prefWidth="180.0" />
+      <JFXButton layoutX="117.0" layoutY="142.0" onAction="#saveCTC" text="Save" />
+      <JFXButton layoutX="182.0" layoutY="142.0" text="Reset" />
+   </children>
+</Pane>

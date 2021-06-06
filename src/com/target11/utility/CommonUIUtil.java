@@ -4,10 +4,18 @@ import com.jfoenix.controls.JFXButton;
 import com.target11.ui.runner.MainController;
 import com.target11.vo.LinkVO;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+import javafx.util.Duration;
+import org.controlsfx.control.Notifications;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.net.URL;
@@ -17,7 +25,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 public class CommonUIUtil {
-
+    public static final Logger log = LoggerFactory.getLogger(CommonUIUtil.class);
        static Map<String,String> linkTypeMap = new HashMap<>();
        private static void loadLinkType(){
            linkTypeMap.put("exe",AppConstant.LINK_TYPE_APP);
@@ -124,6 +132,48 @@ public class CommonUIUtil {
             .collect(Collectors.toList());
         return filterList;
     }
+
+
+
+    public static Object loadWindow(URL loc, String title, Stage parentStage) {
+        Object controller = null;
+        try {
+            FXMLLoader loader = new FXMLLoader(loc);
+            Parent parent = loader.load();
+            controller = loader.getController();
+            Stage stage = null;
+            if (parentStage != null) {
+                stage = parentStage;
+            } else {
+                stage = new Stage(StageStyle.DECORATED);
+            }
+            stage.setTitle(title);
+            stage.setScene(new Scene(parent));
+            stage.show();
+            //setStageIcon(stage);
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            log.error(ex.getMessage());
+        }
+        return controller;
+
+    }
+
+        public static void setStageIcon(Stage stage) {
+            stage.getIcons().add(new Image(""));
+        }
+
+
+        public static void showFlashNotification(String title, String content){
+            Notifications notificationBuilder = Notifications.create()
+                    .title(title)
+                    .text(content)
+                    .graphic(null)
+                    .hideAfter(Duration.seconds(2))
+                    .position(Pos.BOTTOM_RIGHT);
+            notificationBuilder.darkStyle();
+            notificationBuilder.showInformation();
+        }
 
 
 }

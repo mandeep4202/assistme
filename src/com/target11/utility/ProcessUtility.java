@@ -32,7 +32,8 @@ public class ProcessUtility {
           final ClipboardContent content = new ClipboardContent();
           content.put(DataFormat.PLAIN_TEXT, path );
           Clipboard.getSystemClipboard().setContent(content);
-        } else {
+          CommonUIUtil.showFlashNotification("Copied","Copy to Clipboard");
+} else {
           new ProcessBuilder("cmd", "/c", ProcessUtility.dirStructure(path)).start();
         }
       } catch (IOException e) {

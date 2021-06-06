@@ -17,6 +17,7 @@ import org.slf4j.LoggerFactory;
 
 import java.net.URL;
 import java.util.List;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class LaunchPage implements Initializable {
@@ -58,14 +59,15 @@ public class LaunchPage implements Initializable {
     logger.info("Start of prepareAllLinksBtn()");
     linkService = getLinkService();
     linkVOList = linkService.fetchLink();
-    JFXButton jfxBtn = null;
+    JFXButton jfxBtn ;
     for (LinkVO linkVO : linkVOList) {
       jfxBtn = new JFXButton();
       jfxBtn.setText(linkVO.getLinkName());
       jfxBtn.getStyleClass().add("button-raised");
-      jfxBtn.getStylesheets().add(getClass()
-          .getResource("launchButton.css")
-          .toExternalForm());
+
+      jfxBtn.getStylesheets().add(Objects.requireNonNull(getClass()
+              .getResource("launchButton.css"))
+              .toExternalForm());
 
       jfxBtn.getStyleClass().add("launch-button");
 
@@ -91,8 +93,8 @@ public class LaunchPage implements Initializable {
       JFXButton jfxBtn = new JFXButton();
       jfxBtn.setText(lotVO.getLotName());
       jfxBtn.getStyleClass().add("button-raised");
-      jfxBtn.getStylesheets().add(getClass()
-          .getResource("launchButton.css")
+      jfxBtn.getStylesheets().add(Objects.requireNonNull(getClass()
+              .getResource("launchButton.css"))
           .toExternalForm());
 
       jfxBtn.getStyleClass().add("launch-button");
