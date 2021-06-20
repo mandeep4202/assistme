@@ -67,13 +67,14 @@ public class LinkDAO {
 
     public int updateLink(LinkVO linkVO) {
 
-        String inset_Link = "update  L_LINK_TB set L_NAME = ? , L_TYPE= ? where L_LINK_ID = ?;";
+        String inset_Link = "update  L_LINK_TB set L_NAME = ? , L_TYPE= ? , L_PATH= ? where L_LINK_ID = ?;";
         int row = 0;
         try {
             PreparedStatement preparedStatement = conn.prepareStatement(inset_Link);
             preparedStatement.setString(1, linkVO.getLinkName());
             preparedStatement.setString(2, linkVO.getLinkType());
-            preparedStatement.setInt(3, linkVO.getLinkId());
+            preparedStatement.setString(3, linkVO.getLinkPath());
+            preparedStatement.setInt(4, linkVO.getLinkId());
             row = preparedStatement.executeUpdate();
             // rows affected
             System.out.println(row); //1

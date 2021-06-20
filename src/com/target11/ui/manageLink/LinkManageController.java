@@ -3,6 +3,7 @@ package com.target11.ui.manageLink;
 import com.jfoenix.controls.*;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 import com.target11.dao.LinkDAO;
+import com.target11.utility.AppConstant;
 import com.target11.vo.LinkVO;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -36,6 +37,8 @@ public class LinkManageController implements Initializable {
 
   @FXML
   private JFXTextField linkNameTF;
+  @FXML
+  private JFXTextField linkValueTF;
 
   @FXML
   private JFXButton updateLinkButton;
@@ -44,7 +47,7 @@ public class LinkManageController implements Initializable {
   @Override
   public void initialize(URL location, ResourceBundle resources) {
 
-    linkTypeDD.getItems().addAll("APP", "DOC", "OTHER", "DIR");
+    linkTypeDD.getItems().addAll("APP", "DOC", "OTHER", "DIR","CTC");
 
     JFXTreeTableColumn<LinkVOTS, String> linkName = new JFXTreeTableColumn<>("Name");
     linkName.setPrefWidth(150);
@@ -110,11 +113,11 @@ public class LinkManageController implements Initializable {
 
 
   private void displayForUpdate(LinkVOTS linkVOTS) {
-
-    linkNameTF.setText(linkVOTS.linkName.getValue());
-    System.out.println(linkVOTS.linkType.getValue());
+linkNameTF.setText(linkVOTS.linkName.getValue());
     linkTypeDD.getSelectionModel().select(linkVOTS.linkType.getValue());
-    linkVOFinal.setLinkId(Integer.parseInt(linkVOTS.linkID.getValue()));
+    linkValueTF.setDisable(!AppConstant.LINK_TYPE_CTC.equals(linkVOTS.linkType.getValue()));
+    linkValueTF.setText(linkVOTS.linkPath.getValue() );
+   linkVOFinal.setLinkId(Integer.parseInt(linkVOTS.linkID.getValue()));
 
   }
 
@@ -123,6 +126,7 @@ public class LinkManageController implements Initializable {
   void updateLink(ActionEvent event) {
     linkVOFinal.setLinkName(linkNameTF.getText());
     linkVOFinal.setLinkType(linkTypeDD.getValue());
+    linkVOFinal.setLinkPath(linkValueTF.getText());
     System.out.println("linkVOFinal :: " + linkVOFinal);
     linkDAO = new LinkDAO();
     int isUpdated = linkDAO.updateLink(linkVOFinal);
@@ -134,6 +138,7 @@ public class LinkManageController implements Initializable {
     linkTypeDD.getSelectionModel().clearSelection();
     linkTypeDD.getItems().addAll("APP", "DOC", "OTHER","DIR");
     linkNameTF.setText("");
+    linkValueTF.setText("");
   }
 
 
