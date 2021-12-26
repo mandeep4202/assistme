@@ -1,23 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane fx:id="launchPageId" prefHeight="603.0" prefWidth="675.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.target11.ui.launch.LaunchPage">
+<AnchorPane fx:id="launchPageId" prefHeight="603.0" prefWidth="675.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.target11.ui.launch.LaunchPage">
     <children>
-        <ScrollPane layoutX="5.0" layoutY="32.0" minHeight="400.0" prefHeight="565.0" prefWidth="166.0" stylesheets="@../../resources/dark-theme.css" vbarPolicy="ALWAYS">
+        <ScrollPane layoutX="5.0" layoutY="32.0" minHeight="216.0" prefHeight="247.0" prefWidth="166.0" stylesheets="@../../resources/dark-theme.css" vbarPolicy="ALWAYS">
             <content>
-                <VBox fx:id="lotLauncher" prefHeight="563.0" prefWidth="146.0" style="-fx-border-color: white;" stylesheets="@../../resources/dark-theme.css">
+                <VBox fx:id="lotLauncher" prefHeight="242.0" prefWidth="146.0" style="-fx-border-color: white;" stylesheets="@../../resources/dark-theme.css">
                     <padding>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                     </padding>
                 </VBox>
             </content>
         </ScrollPane>
-        <ScrollPane layoutX="188.0" layoutY="32.0" minHeight="400.0" prefHeight="565.0" prefWidth="155.0" stylesheets="@../../resources/dark-theme.css" vbarPolicy="ALWAYS">
+        <ScrollPane hbarPolicy="ALWAYS" layoutX="188.0" layoutY="32.0" minHeight="400.0" prefHeight="565.0" prefWidth="155.0" stylesheets="@../../resources/dark-theme.css">
             <content>
                 <VBox fx:id="appLauncher" prefHeight="561.0" prefWidth="146.0" style="-fx-border-color: white;" stylesheets="@../../resources/dark-theme.css">
                     <padding>
@@ -35,9 +40,9 @@
                 </VBox>
             </content>
         </ScrollPane>
-        <ScrollPane layoutX="511.0" layoutY="32.0" minHeight="400.0" prefHeight="565.0" prefWidth="142.0" stylesheets="@../../resources/dark-theme.css" vbarPolicy="ALWAYS">
+        <ScrollPane layoutX="511.0" layoutY="32.0" minHeight="400.0" prefHeight="565.0" prefWidth="155.0" stylesheets="@../../resources/dark-theme.css" vbarPolicy="ALWAYS">
             <content>
-                <VBox fx:id="otherLauncher" prefHeight="561.0" prefWidth="135.0" style="-fx-border-color: white;" stylesheets="@../../resources/dark-theme.css">
+                <VBox fx:id="otherLauncher" prefHeight="561.0" prefWidth="144.0" style="-fx-border-color: white;" stylesheets="@../../resources/dark-theme.css">
                     <padding>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                     </padding>
@@ -48,5 +53,16 @@
       <Label alignment="CENTER" layoutX="188.0" layoutY="8.0" prefHeight="17.0" prefWidth="124.0" text="App Launcher" />
       <Label alignment="CENTER" layoutX="357.0" layoutY="6.0" prefHeight="17.0" prefWidth="132.0" text="Directory Launcher" />
       <Label alignment="CENTER" layoutX="511.0" layoutY="8.0" prefHeight="17.0" prefWidth="132.0" text="Click To Copy" />
+      <ScrollPane layoutX="3.0" layoutY="365.0" minHeight="216.0" prefHeight="232.0" prefWidth="166.0" stylesheets="@../../resources/dark-theme.css" vbarPolicy="ALWAYS">
+         <content>
+            <VBox fx:id="uRLLauncher" prefHeight="279.0" prefWidth="146.0" style="-fx-border-color: white;" stylesheets="@../../resources/dark-theme.css">
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </VBox>
+         </content>
+      </ScrollPane>
+      <Label alignment="CENTER" layoutX="5.0" layoutY="293.0" prefHeight="17.0" prefWidth="166.0" text="Launch URL" />
+      <JFXTextField fx:id="urlSearch" layoutX="-1.0" layoutY="320.0" onKeyReleased="#onFilterUrl" prefHeight="39.0" prefWidth="178.0" promptText="search" />
     </children>
 </AnchorPane>

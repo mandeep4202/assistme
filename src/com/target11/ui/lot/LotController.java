@@ -20,10 +20,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-import java.util.ResourceBundle;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class LotController implements Initializable {
@@ -83,6 +80,7 @@ public class LotController implements Initializable {
       for (LotVO lotVO : lotVOList) {
         log.info("THIs is loadAllLot method ");
         jfxButton = CommonUIUtil.createButton(lotVO.getLotName());
+
         jfxButton.addEventHandler(MouseEvent.MOUSE_CLICKED,
             event -> fetchLinkOfLot(lotVO));
         clScrollPaneList.getChildren().addAll(jfxButton);

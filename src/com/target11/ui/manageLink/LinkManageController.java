@@ -4,6 +4,7 @@ import com.jfoenix.controls.*;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 import com.target11.dao.LinkDAO;
 import com.target11.utility.AppConstant;
+import com.target11.utility.ValidValues;
 import com.target11.vo.LinkVO;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -47,7 +48,8 @@ public class LinkManageController implements Initializable {
   @Override
   public void initialize(URL location, ResourceBundle resources) {
 
-    linkTypeDD.getItems().addAll("APP", "DOC", "OTHER", "DIR","CTC");
+    //linkTypeDD.getItems().addAll("APP", "DOC", "OTHER", "DIR","CTC");
+    linkTypeDD.getItems().addAll(ValidValues.linkType_List);
 
     JFXTreeTableColumn<LinkVOTS, String> linkName = new JFXTreeTableColumn<>("Name");
     linkName.setPrefWidth(150);
@@ -136,7 +138,7 @@ linkNameTF.setText(linkVOTS.linkName.getValue());
 
   private void resetUpdateForm() {
     linkTypeDD.getSelectionModel().clearSelection();
-    linkTypeDD.getItems().addAll("APP", "DOC", "OTHER","DIR");
+    linkTypeDD.getItems().addAll("APP", "DOC", "OTHER","DIR","CTC");
     linkNameTF.setText("");
     linkValueTF.setText("");
   }

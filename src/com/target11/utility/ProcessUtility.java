@@ -8,8 +8,11 @@ import mslinks.ShellLinkException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.awt.*;
 import java.io.File;
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,7 +36,11 @@ public class ProcessUtility {
           content.put(DataFormat.PLAIN_TEXT, path );
           Clipboard.getSystemClipboard().setContent(content);
           CommonUIUtil.showFlashNotification("Copied","Copy to Clipboard");
-} else {
+}  else if(AppConstant.LINK_TYPE_URL_LAUNCHER.equals(processType)) {
+
+          launchURl(path);
+
+      } else {
           new ProcessBuilder("cmd", "/c", ProcessUtility.dirStructure(path)).start();
         }
       } catch (IOException e) {
@@ -86,7 +93,7 @@ public class ProcessUtility {
    * @return
    */
   public static List<String> processLink(String rawFilePath) {
-    List<String> linkProperties = new ArrayList<>(3);
+    List<String> linkProperties = new ArrayList<> (3);
     try {
       String fileNameWithExt = ProcessUtility.getFileNameWithExt(rawFilePath);
       System.out.println("nameWithExt :: " + fileNameWithExt);
@@ -125,6 +132,34 @@ public class ProcessUtility {
    */
   private static boolean isShortCut(String nameWithExt){
     return "lnk".equals(ProcessUtility.getFileExtension(nameWithExt));
+  }
+
+
+  private static void launchURl(String path){
+
+    if(path != null){
+
+      String[] urls = path.split(",");
+      Desktop desktop=  Desktop.getDesktop();
+      for(int i= 0; i < urls.length ; i++){
+
+
+        try {
+          desktop.browse(new URI(urls[i]));
+        } catch (IOException e1) {
+          e1.printStackTrace();
+        } catch (URISyntaxException e1) {
+          e1.printStackTrace();
+        }
+
+      }
+
+
+
+
+    }
+
+
   }
 
 }
